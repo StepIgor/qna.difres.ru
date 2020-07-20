@@ -5,6 +5,8 @@ if (read_get()['id'] == null || categories[read_get()['id']] == null){
   //exists
   id = read_get()['id'];
 
+  document.title = categories[id]['name'] + ' | QnA DIFRES.RU';
+
   document.getElementById('cat_pic').src = 'img/cats/' + id + '.png';
   document.getElementById('cat_name').innerHTML = categories[id]['name'];
   document.getElementById('cat_desc').innerHTML = categories[id]['description'];
