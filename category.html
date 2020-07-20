@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Категория | QnA DIFRES.RU</title>
+  <link rel="shortcut icon" href="favicon.png">
+  <link rel="stylesheet" href="css/materialize.min.css">
+  </link>
+  <link rel="stylesheet" href="css/icon.css">
+  </link>
+  <meta name="viewport" content="width=device-width">
+  </meta>
+  <style media="screen">
+    @media screen and (min-width: 801px) {
+      .main {
+        margin-left: 305px;
+      }
+    }
+    blockquote{
+      border-left: 5px solid grey;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="slide-out" class="sidenav">
+    <li>
+      <div class="user-view">
+        <a href="index.html">
+          <h5 class="black-text" style="font-weight:bold;">Вопросы и ответы</h5>
+        </a>
+        <a href="index.html"><span class="grey-text email">Делитесь своими знаниями</span></a>
+      </div>
+    </li>
+    <li><a href="favourites.html"><i class="material-icons">grade</i>Избранное</a></li>
+    <li><a href="account.html"><i class="material-icons">person</i>Профиль</a></li>
+    <li>
+      <div class="divider"></div>
+    </li>
+    <li><a class="subheader">Действия</a></li>
+    <li><a onclick="send_question()" href="#!"><i class="material-icons">help</i>Задать вопрос</a></li>
+  </ul>
+
+
+  <ul id="slide-out" class="sidenav sidenav-fixed hide-on-med-and-down">
+    <li>
+      <div class="user-view">
+        <a href="index.html">
+          <h5 class="black-text" style="font-weight:bold;">Вопросы и ответы</h5>
+        </a>
+        <a href="index.html"><span class="grey-text email">Делитесь своими знаниями</span></a>
+      </div>
+    </li>
+    <li><a href="favourites.html"><i class="material-icons">grade</i>Избранное</a></li>
+    <li><a href="account.html"><i class="material-icons">person</i>Профиль</a></li>
+    <li>
+      <div class="divider"></div>
+    </li>
+    <li><a class="subheader">Действия</a></li>
+    <li><a onclick="send_question()" href="#!"><i class="material-icons">help</i>Задать вопрос</a></li>
+  </ul>
+
+  <div class="main">
+    <div class="container">
+      <div class="row">
+        <div class="col s2 m1 l0 hide-on-large-only">
+          <a href="#" data-target="slide-out" class="sidenav-trigger grey-text"><i class="material-icons" style="margin-top:27px;">menu</i></a>
+        </div>
+        <div class="col s8 m10 l11 input-field">
+          <input type="text" id="search_textbox" value="" placeholder="Найти вопрос...">
+        </div>
+        <div class="col s2 m1 l1">
+          <a href="#!" onclick="search_now()" id="search_button" class="btn waves-effect waves-light grey white-text hide-on-med-and-down" style="margin-top:24px;margin-left:-15px;"><i class="material-icons">search</i></a>
+          <a href="#!" onclick="search_now()" id="search_button_m" class="btn waves-effect waves-light grey white-text hide-on-large-only" style="margin-top:20px;margin-left:-15px;"><i class="material-icons">search</i></a>
+        </div>
+      </div>
+      <div class="row" id="search_results" style="display:none;margin-top:-35px;margin-bottom:40px;border:1px solid grey;border-top:none;">
+      </div>
+      <div class="row center-align" id="category_does_not_exist" style="display:none;margin-top:50px;">
+        <div class="col s12 m12 l12">
+          <i class="material-icons large grey-text">cancel</i>
+          <h6 style="font-weight:bold;">Категория не существует</h6>
+          Она либо не существовала никогда, либо была удалена
+        </div>
+      </div>
+      <div class="row" id="category_exists" style="display:none;margin-top:50px;">
+        <div class="col s12 m12 l12 center-align">
+          <img src="" id="cat_pic" style="width:128px;height:128px;" alt="">
+          <h5 style="font-weight:bold;" id="cat_name">Category_name</h5>
+          <span class="grey-text" id="cat_desc">Описание категории</span>
+        </div>
+        <div class="col s12 m12 l12 left-align" style="margin-top:50px;">
+          <h5 style="font-weight:bold;">Вопросы с категорией (<span id="cat_quest_count">0</span>):</h5>
+        </div>
+        <div class="row left-align" id="questions_block">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/db.js?ver=1"></script>
+  <script src="js/stepigor_lib.js?ver=1"></script>
+  <script src="js/search.js?ver=1"></script>
+  <script src="js/category.js?ver=1"></script>
+</body>
+
+</html>

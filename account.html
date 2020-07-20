@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Ваш профиль | QnA DIFRES.RU</title>
+  <link rel="shortcut icon" href="favicon.png">
+  <link rel="stylesheet" href="css/materialize.min.css">
+  </link>
+  <link rel="stylesheet" href="css/icon.css">
+  </link>
+  <meta name="viewport" content="width=device-width">
+  </meta>
+  <style media="screen">
+    @media screen and (min-width: 801px) {
+      .main {
+        margin-left: 305px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="questions_modal" class="modal">
+    <div class="modal-content">
+      <h4>У меня есть вопросы</h4>
+      <p style="text-align:justify;">
+        <b>Можно ли сменить никнейм?</b><br>
+        Нет, подобной возможности нет. Никнейм закрепляется за определенным почтовым адресом, с которого отправляется первое письмо.
+        <br><br>
+        <b>Об изменениях на данной странице</b><br>
+        Введенные вами обновленные данные хранятся только локально на устройстве и используются при автоматической подстановке в форму при
+        написании письма на адрес сервиса.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-red btn-flat">Закрыть</a>
+    </div>
+  </div>
+
+  <ul id="slide-out" class="sidenav">
+    <li>
+      <div class="user-view">
+        <a href="index.html">
+          <h5 class="black-text" style="font-weight:bold;">Вопросы и ответы</h5>
+        </a>
+        <a href="index.html"><span class="grey-text email">Делитесь своими знаниями</span></a>
+      </div>
+    </li>
+    <li><a href="favourites.html"><i class="material-icons">grade</i>Избранное</a></li>
+    <li><a href="account.html"><i class="material-icons">person</i>Профиль</a></li>
+    <li>
+      <div class="divider"></div>
+    </li>
+    <li><a class="subheader">Действия</a></li>
+    <li><a onclick="send_question()" href="#!"><i class="material-icons">help</i>Задать вопрос</a></li>
+  </ul>
+
+
+  <ul id="slide-out" class="sidenav sidenav-fixed hide-on-med-and-down">
+    <li>
+      <div class="user-view">
+        <a href="index.html">
+          <h5 class="black-text" style="font-weight:bold;">Вопросы и ответы</h5>
+        </a>
+        <a href="index.html"><span class="grey-text email">Делитесь своими знаниями</span></a>
+      </div>
+    </li>
+    <li><a href="favourites.html"><i class="material-icons">grade</i>Избранное</a></li>
+    <li><a href="account.html"><i class="material-icons">person</i>Профиль</a></li>
+    <li>
+      <div class="divider"></div>
+    </li>
+    <li><a class="subheader">Действия</a></li>
+    <li><a onclick="send_question()" href="#!"><i class="material-icons">help</i>Задать вопрос</a></li>
+  </ul>
+
+  <div class="main">
+    <div class="container">
+      <div class="row">
+        <div class="col s2 m1 l0 hide-on-large-only">
+          <a href="#" data-target="slide-out" class="sidenav-trigger grey-text"><i class="material-icons" style="margin-top:27px;">menu</i></a>
+        </div>
+        <div class="col s8 m10 l11 input-field">
+          <input type="text" id="search_textbox" value="" placeholder="Найти вопрос...">
+        </div>
+        <div class="col s2 m1 l1">
+          <a href="#!" onclick="search_now()" id="search_button" class="btn waves-effect waves-light grey white-text hide-on-med-and-down" style="margin-top:24px;margin-left:-15px;"><i class="material-icons">search</i></a>
+          <a href="#!" onclick="search_now()" id="search_button_m" class="btn waves-effect waves-light grey white-text hide-on-large-only" style="margin-top:20px;margin-left:-15px;"><i class="material-icons">search</i></a>
+        </div>
+      </div>
+      <div class="row" id="search_results" style="display:none;margin-top:-35px;margin-bottom:40px;border:1px solid grey;border-top:none;">
+      </div>
+      <div class="row">
+        <div class="col s12 m12 l12" style="text-align:justify;">
+          <h5 style="font-weight:bold;">Ваш профиль:</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m12 l12" style="text-align:justify;">
+          Информация, указанная вами на данной странице, хранится локально на устройстве. Заполненные поля автоматически
+          подставляются в форму при написании письма на адрес сервиса (публикация вопроса, написание ответа и т.п.).
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m12 l12 input-field">
+          <input type="text" id="username_t" maxlength="24" value="">
+          <label for="username_t">Никнейм</label>
+        </div>
+        <div class="col s12 m12 l12 input-field">
+          <input type="text" id="about_t" maxlength="64" value="">
+          <label for="username_t">О себе</label>
+        </div>
+      </div>
+      <div class="row">
+
+      </div>
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <a class="modal-trigger grey-text" style="font-weight:bold;line-height:2.5;" href="#questions_modal">У меня есть вопросы</a><br>
+          <a id="a_about" href="" class="grey-text" style="font-weight:bold;line-height:2.5;">Изменить краткое описание (о себе)</a><br>
+          <a id="a_color" href="" class="grey-text" style="font-weight:bold;line-height:2.5;">Изменить аватарку (цвет)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/db.js?ver=1"></script>
+  <script src="js/stepigor_lib.js?ver=1"></script>
+  <script src="js/search.js?ver=1"></script>
+  <script src="js/account.js?ver=1"></script>
+</body>
+
+</html>

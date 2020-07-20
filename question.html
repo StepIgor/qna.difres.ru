@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Вопрос | QnA DIFRES.RU</title>
+  <link rel="shortcut icon" href="favicon.png">
+  <link rel="stylesheet" href="css/materialize.min.css">
+  </link>
+  <link rel="stylesheet" href="css/icon.css">
+  </link>
+  <meta name="viewport" content="width=device-width">
+  </meta>
+  <style media="screen">
+    @media screen and (min-width: 801px) {
+      .main{
+        margin-left:305px;
+      }
+    }
+    blockquote{
+      border-left: 5px solid grey;
+    }
+  </style>
+</head>
+
+<body>
+
+  <ul id="slide-out" class="sidenav">
+    <li>
+      <div class="user-view">
+        <a href="index.html"><h5 class="black-text" style="font-weight:bold;">Вопросы и ответы</h5></a>
+        <a href="index.html"><span class="grey-text email">Делитесь своими знаниями</span></a>
+      </div>
+    </li>
+    <li><a href="favourites.html"><i class="material-icons">grade</i>Избранное</a></li>
+    <li><a href="account.html"><i class="material-icons">person</i>Профиль</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Действия</a></li>
+    <li><a onclick="send_question()" href="#!"><i class="material-icons">help</i>Задать вопрос</a></li>
+  </ul>
+
+
+  <ul id="slide-out" class="sidenav sidenav-fixed hide-on-med-and-down">
+    <li>
+      <div class="user-view">
+        <a href="index.html"><h5 class="black-text" style="font-weight:bold;">Вопросы и ответы</h5></a>
+        <a href="index.html"><span class="grey-text email">Делитесь своими знаниями</span></a>
+      </div>
+    </li>
+    <li><a href="favourites.html"><i class="material-icons">grade</i>Избранное</a></li>
+    <li><a href="account.html"><i class="material-icons">person</i>Профиль</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Действия</a></li>
+    <li><a onclick="send_question()" href="#!"><i class="material-icons">help</i>Задать вопрос</a></li>
+  </ul>
+
+  <div class="main">
+    <div class="container">
+      <div class="row">
+        <div class="col s2 m1 l0 hide-on-large-only">
+          <a href="#" data-target="slide-out" class="sidenav-trigger grey-text"><i class="material-icons" style="margin-top:27px;">menu</i></a>
+        </div>
+        <div class="col s8 m10 l11 input-field">
+          <input type="text" id="search_textbox" value="" placeholder="Найти вопрос...">
+        </div>
+        <div class="col s2 m1 l1">
+          <a href="#!" onclick="search_now()" id="search_button" class="btn waves-effect waves-light grey white-text hide-on-med-and-down" style="margin-top:24px;margin-left:-15px;"><i class="material-icons">search</i></a>
+          <a href="#!" onclick="search_now()" id="search_button_m" class="btn waves-effect waves-light grey white-text hide-on-large-only" style="margin-top:20px;margin-left:-15px;"><i class="material-icons">search</i></a>
+        </div>
+      </div>
+      <div class="row" id="search_results" style="display:none;margin-top:-35px;margin-bottom:40px;border:1px solid grey;border-top:none;">
+      </div>
+      <div class="row center-align" id="q_error" style="display:none;margin-top:100px;">
+        <div class="col s12 m12 l12">
+          <i class="material-icons large grey-text">delete</i><br>
+          <h6 class="black-text" style="font-weight:bold;">Упс! Кажется, что-то пошло не так...</h6>
+        </div>
+        <div class="col s12 m12 l12 black-text">
+          Вопрос по заданному адресу либо был удален, либо никогда не существовал. Такое бывает.
+        </div>
+      </div>
+      <div class="row" id="q_exists" style="display:none;">
+        <div class="col s12 m12 l12">
+          <table>
+            <tr>
+              <td style="width:64px;">
+                <div id="user_pic" style="width:64px;height:64px;background:grey;border-radius:32px;">
+
+                </div>
+              </td>
+              <td style="text-align:left;vertical-align:top;">
+                <a style="text-decoration:none;" id="user_link"><span id="user_name" style="font-weight:bold;" class="black-text">username</span></a>
+                <br>
+                <span id="about_user" class="grey-text">about user text</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col s12 m12 l12">
+          <blockquote style="border-left:5px solid grey;">
+            <p id="question_content" style="text-align:justify;font-size:24px;">
+              question content
+              <br><br><br>
+            </p>
+            <p id="question_attachment" style="text-align:justify;">
+              
+            </p>
+          </blockquote>
+        </div>
+        <div class="col s12 m12 l12">
+          <a href="" id="fav_but" class="btn waves-effect waves-light grey"><i class="material-icons left white-text">grade</i>Добавить в избранное</a>&nbsp;<br class="hide-on-med-and-up"><br class="hide-on-med-and-up">
+          <a href="" id="send_own_answer_but" class="btn waves-effect waves-light grey"><i class="material-icons left white-text">send</i>Опубликовать свой ответ</a>
+        </div>
+        <div class="col s12 m12 l12" style="margin-top:15px;">
+          <span id="q_date">19.05.2000</span> - <span id="q_categories">Жизнь</span>
+        </div>
+        <div class="col s12 m12 l12" style="margin-top:50px;">
+          <h5 style="font-weight:bold;">Ответы на вопрос (<span id="answers_count">0</span>):</h5>
+        </div>
+        <div class="col s12 m12 l12" id="answers_block">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/db.js?ver=1"></script>
+  <script src="js/stepigor_lib.js?ver=1"></script>
+  <script src="js/search.js?ver=1"></script>
+  <script src="js/question.js"></script>
+</body>
+
+</html>
