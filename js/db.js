@@ -26,6 +26,13 @@ var questions = {
     'date': '23.07.2020',
     'categories': [1],
     'author': 1
+  },
+  5:{
+    'content': 'Как сделать цветной курсор в последних версиях Windows 10?',
+    'attachment': '',
+    'date': '06.10.2020',
+    'categories': [4],
+    'author': 1
   }
 };
 
@@ -54,6 +61,12 @@ var answers = {
     'author': 2,
     'date': '23.07.2020',
     'content': 'Для этого в консоли пропишите несколько команд (рассмотрим на примере ножа - керамбита).<ul style="font-weight:bold;"><li>sv_cheats 1</li><li>mp_drop_knife_enable 1</li><li>give weapon_knife_karambit; ent_fire weapon_knife addoutput "classname weapon_knifegg"</li></ul>Интересно, что последней командой мы не только выдаем нож, но и назначаем ему принадлежность к классу weapon_knifegg. Это нужно для того, чтобы игрок мог подобрать нож с земли. gg - Gun Game (гонка вооружений), в этом режиме выдается игроку золотой нож, как вы помните, поэтому нам нужно перенести эту способность на выбранный нами нож.'
+  },
+  5:{
+    'q_id': 5,
+    'author': 2,
+    'date': '06.10.2020',
+    'content': 'Откройте параметры Windows (в пуске <img src="img/attachments/answ5_1.png" style="vertical-align:middle;">), выберите раздел Специальные возможности, затем кликните по пункту Курсор и указатель в левой части окна. Вы в меню настройки цветов.'
   }
 };
 
