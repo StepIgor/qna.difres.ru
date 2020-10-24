@@ -33,6 +33,13 @@ var questions = {
     'date': '06.10.2020',
     'categories': [4],
     'author': 1
+  },
+  6:{
+    'content': 'Как подключить JS-файл к HTML-документу?',
+    'attachment': '',
+    'date': '24.10.2020',
+    'categories': [6],
+    'author': 1
   }
 };
 
@@ -67,6 +74,12 @@ var answers = {
     'author': 2,
     'date': '06.10.2020',
     'content': 'Откройте параметры Windows (в пуске <img src="img/attachments/answ5_1.png" style="vertical-align:middle;">), выберите раздел Специальные возможности, затем кликните по пункту Курсор и указатель в левой части окна. Вы в меню настройки цветов.'
+  },
+  6:{
+    'q_id': 6,
+    'author': 2,
+    'date': '06.10.2020',
+    'content': 'В пределах HTML-документа (лучше перед закрывающим тегом <b>&lt;/body&gt;</b>) пропишите тег:<br><b> &lt;script src="путь_к_файлу_js"&gt;</b><br><br>Например:<br><b> &lt;script src="js/script.js"&gt;</b>'
   }
 };
 
@@ -106,5 +119,9 @@ var categories = {
   5:{
     'name': 'Жизнь',
     'description': 'Жизненный опыт бесценнен'
+  },
+  6:{
+    'name': 'Программирование',
+    'description': 'Вопросы реализации алгоритмов на одном из популярных ЯП'
   }
 };
